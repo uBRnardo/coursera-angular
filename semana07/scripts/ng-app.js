@@ -5,7 +5,6 @@
 	.controller('LunchCheckCtrlr', LunchCheckCtrlr);
 
 	LunchCheckCtrlr.$inject = ['$scope'];
-	console.log('loaded ng-app')
 
 	function LunchCheckCtrlr($scope) {
 		$scope.lunch = "";
