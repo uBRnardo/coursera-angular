@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app='LunchCheck'>
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+<body>
+  <div class="container" ng-controller='LunchCheckCtrlr'>
+    <h1>Lunch Checker</h1>
+    <div class="form-group">
+      <input
+        id="lunch-menu"
+        ng-model="lunch"
+        class="form-control"
+        type="text"
+        placeholder="list comma separated dishes you usually have for lunch"
+      >
+    </div>
+    <div class="form-group">
+      <button 
+        class="btn btn-default"
+        ng-click='CheckLunch()'
+      >
+        Check If Too Much
+      </button>
+    </div>
+    <div class="form-group message">
+      {{evaluation}}
+    </div>
+
+  </div>
+  <script src="scripts/angular.min.js"></script>
+  <script src="scripts/ng-app.js"></script>
+</body>
+</html>
