@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" ng-app='ShoppingListCheckOff'>
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .emptyMessage {
+        font-style: italic;
+        color: grey;
+        font-size: 1.2em;
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      li > button {
+        margin-left: 6px;
+      }
+      button > span {
+        color: green;
+      }
+    </style>
+  </head>
+<body>
+  <div class="container">
+  <h1>Lista de Compras</h1>
+
+  <div class="row">
+
+    <div id="tobuy" class="col-md-6" ng-controller='ToBuyListController as tobuy'>
+      <h2>Comprar</h2>
+      <div ng-if='(tobuy.getItems().length > 0)'>
+        <ol>
+          <li ng-repeat="item in tobuy.getItems()">
+            Comprar {{ item.quantity }} {{ item.name }}{{item.quantity > 1 ? 's' : ''}}
+            <button ng-click="tobuy.bought($index);">Comprei</button>
+          </li>
+        </ol>
+      </div>
+      <div class="emptyMessage" ng-if='(tobuy.getItems().length == 0)'>
+        Tudo comprado!
+      </div>
+
+    </div>
+
+    <div id="bought" class="col-md-6" ng-controller='AlreadyBoughtController as bought'>
+      <h2>Comprei</h3>
+      <div ng-if='(bought.getItems().length > 0)'>
+        <ol>
+          <li ng-repeat="item in bought.getItems()">
+            Comprei {{ item.quantity }} {{ item.name }}{{item.quantity > 1 ? 's' : ''}}
+          </li>
+        </ol>
+      </div>
+      <div class="emptyMessage" ng-if='(bought.getItems().length == 0)'>
+        Nada comprado...
+      </div>
+    </div>
+
+  <script src="scripts/angular.min.js"></script>
+  <script src="scripts/ng-checkoff.js"></script>
+</body>
+</html>
