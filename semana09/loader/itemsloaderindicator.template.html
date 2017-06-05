@@ -6,6 +6,6 @@
     <button ng-click="onRemove()($index);">Don't Want This!</button>
   </li>
 </ul>
-<p ng-if='foundItems.length == 0'>Nothing Found</p>
+<p ng-if='( (foundItems != undefined) && (foundItems.length == 0) )'>Nothing Found</p>
 
 </div>
