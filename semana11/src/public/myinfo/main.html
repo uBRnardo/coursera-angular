@@ -1,0 +1,24 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">My Info</h2>
+
+  <div class='row' ng-if='infoctrl.infosrvc.saved'>
+	  <p>Nome: {{infoctrl.info.firstname}} {{infoctrl.info.lastname}}</p>
+	  <p>Email: {{infoctrl.info.email}}</p>
+	  <p>Phone: {{infoctrl.info.phone}}</p>
+	  <p>Favorite: {{infoctrl.info.favorite}}</p>
+	</div>
+
+  <div class='row' ng-if='!infoctrl.infosrvc.saved'>
+	  <p>Nenhuma informação salva.</p>
+	  <p><a ui-sref="public.signup">Inscreva-se agora!</a></p>
+	</div>
+
+  <div class='row' ng-if='infoctrl.infosrvc.saved'>
+	  <div class="menu-item-photo">
+	    <div>{{infoctrl.info.favorite}}</div>
+	    <img class="img-responsive" width="250" height="150" ng-src="{{infoctrl.basePath}}/images/{{infoctrl.info.favorite}}.jpg" alt="{{infoctrl.info.item.name}}">
+	  </div>
+  </div>
+
+
+</div>
